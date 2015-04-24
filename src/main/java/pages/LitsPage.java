@@ -134,7 +134,38 @@ public class LitsPage extends Page{
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-991']/a")
 	public WebElement footerLectoramasLink;
 	
+	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']")
+	public WebElement footerContacts;
 	
+	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-mail']")
+	public WebElement footerIconMail;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-fb-light']")
+	public WebElement footerIconFaceBookLight;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-moodle']")
+	public WebElement footerIconMoodle;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-inner-web']")
+	public WebElement footerIconInnerWeb;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='inner-tel']")
+	public WebElement footerIconTelephone;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-tel']/..//text()")
+	public WebElement footerTelephoneNumber;
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='mission-title']/text()")
+	public WebElement footerMissionTitle;
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='mission-title']/../text()")
+	public WebElement footerMissionText;
+	
+	@FindBy(how = How.XPATH, using = "//*[contains(@class, 'copyright-text')]/text()")
+	public WebElement footerCopyrightText;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='scroll-up']")
+	public WebElement footerScrollUp;
 	
 	public boolean isAvatarDisplayed() {
 		return headerLogoImage.isDisplayed();
