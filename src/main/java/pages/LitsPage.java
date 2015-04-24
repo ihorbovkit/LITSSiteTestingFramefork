@@ -17,9 +17,6 @@ public class LitsPage extends Page{
 	@FindBy(how = How.XPATH, using = "//*[@id='header-logo-image']//img")
 	public WebElement headerLogoImage;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='header-logo-image']//imgTEST TEST TEST")
-	public WebElement newHeaderLogoImage;
-	
 	@FindBy(how = How.XPATH, using = "//*[@id ='header-right-section']//i[@class='icon-mail']")
 	public WebElement mailIcon;
 	
