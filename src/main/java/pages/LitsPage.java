@@ -12,7 +12,7 @@ public class LitsPage extends Page{
 		
 	}
 	
-	// Header Nodes
+	// Header Elements
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='header-logo-image']//img")
 	public WebElement headerLogoImage;
@@ -103,7 +103,7 @@ public class LitsPage extends Page{
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-1059']/a")
 	public WebElement lectoramasLink;
 	
-	// Footer Nodes
+	// Footer Elements
 	@FindBy(how = How.XPATH, using = "//*[@id='colophon']")
 	public WebElement footer;
 	
