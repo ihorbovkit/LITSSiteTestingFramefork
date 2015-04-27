@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+
 
 public class LitsPage extends Page{
 
@@ -170,5 +173,9 @@ public class LitsPage extends Page{
 	public boolean isAvatarDisplayed() {
 		return headerLogoImage.isDisplayed();
 	}
-
+	public StudentRegistrationFormPage clickOnElement(){
+		becomeStudentButton.click();
+		return PageFactory.initElements(webDriver, StudentRegistrationFormPage.class);
+	}
+	
 }

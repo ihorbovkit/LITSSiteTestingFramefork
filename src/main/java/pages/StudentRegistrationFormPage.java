@@ -1,9 +1,13 @@
 package pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 public class StudentRegistrationFormPage extends Page{
 
@@ -67,7 +71,7 @@ public class StudentRegistrationFormPage extends Page{
 	public WebElement registrationFormCityLable;
 	
 	@FindBy(how = How.XPATH, using = "//div[@class='form-single-column']")
-	public WebElement registrationFormCityRadioButtons;
+	public List<WebElement> registrationFormCityRadioButtons;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='label_12']/text()")
 	public WebElement registrationFormPriceLable;
@@ -83,4 +87,45 @@ public class StudentRegistrationFormPage extends Page{
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='reg_sbmt']")
 	public WebElement registrationFormSubmitButton;
+	
+	public boolean isPageLoaded(){
+		return registartionFormCloseButton.isDisplayed();
+	}
+	public StudentRegistrationFormPage fielRegistrationForm(){
+		webDriver.switchTo().frame(registrationForm);
+		
+		registrationFormNameInputField.sendKeys("name");
+		registrationFormNameInputField.sendKeys("Sure anme");
+		registrationFormPhoneNumberInputField.sendKeys("phorene Number");
+		Select corseDropdown = new Select(registrationFormCorseDropdown);
+		corseDropdown.selectByVisibleText("Автоматизоване тестування");
+		
+		for (int i=0; i<registrationFormCityRadioButtons.size(); i++){
+			if ("".equals(registrationFormCityRadioButtons.get(i).getText())){
+				registrationFormCityRadioButtons.get(i).click();
+				break;
+			}
+		}
+		
+		webDriver.switchTo().defaultContent();
+		
+		return this;
+	}
+	
+	public StudentRegistrationFormPage clickOnButton(String buttonName){
+		webDriver.switchTo().frame(registrationForm);
+		
+		if ("Send".equalsIgnoreCase(buttonName)){
+			registrationFormSubmitButton.click();
+		}else {
+			if ("Close".equalsIgnoreCase(buttonName)){
+				registrationFormCloseButton.click();
+			}
+		}
+	
+		webDriver.switchTo().defaultContent();
+		
+		return this;
+		
+	}
 }
