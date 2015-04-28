@@ -5,7 +5,7 @@
 	<artifactId>LitsSitePractice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>LITSSiteTestingFramefork</name>
-	<description>LITSSiteTestingFramefork</description>
+	<description>LITSSiteTestingFramework</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
