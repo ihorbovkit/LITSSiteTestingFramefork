@@ -2,7 +2,6 @@ package pages;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,117 +14,163 @@ public class StudentRegistrationFormPage extends Page{
 		super(webDriver);
 		// TODO Auto-generated constructor stub
 	}
-	@FindBy(how = How.XPATH, using = "//*[@id='register_form']//*[@id='myModalLabel']/text()")
-	public WebElement registrationFormHeader;
+	private String phoneNumber;
+	private boolean count;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id='register_form']//*[@id='myModalLabel']")
+	public WebElement headerRegistrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='register_form']//button[@class='close']")
-	public WebElement registartionFormCloseButton;
+	public WebElement closeButtonRegistartionForm;
 	
-	// Should switch to form
+	// Should switch to iFrame
+	@FindBy(how = How.XPATH, using = "//*[@id='JotFormIFrame']")
+	public WebElement iFrame;
+	
 	@FindBy(how = How.XPATH, using = "//*[@class='jotform-form']")
 	public WebElement registrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='label_1']")
-	public WebElement registrationFormFullNameLabel;
+	public WebElement fullNameLabelRegistartionForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='first_1']")
-	public WebElement registrationFormNameInputField;
+	public WebElement nameInputFieldRegistartionForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='last_1']")
-	public WebElement registrationFormSureNameInputField;
+	public WebElement sureNameInputFieldRegistartionForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='last_1']")
-	public WebElement registrationFormNameSubLable;
+	public WebElement nameSubLableRegistartionForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='sublabel_last']")
-	public WebElement registrationFormSureNameSubLable;
+	public WebElement sureNameSubLableRegistartionForm;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='label_4']/text()")
-	public WebElement registrationFormPhoneNumberLable;
+	@FindBy(how = How.XPATH, using = "//*[@id='label_4']")
+	public WebElement numberLableRegistrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='input_4_area']")
-	public WebElement registrationFormOperatorCodeInputField;
+	public WebElement operatorCodeInputFieldRegistrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='input_4_phone']")
-	public WebElement registrationFormPhoneNumberInputField;
+	public WebElement phoneNumberInputFieldRegistrationForm;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='sublabel_area']/text()")
-	public WebElement registrationFormOperatorCodeSubLable;
+	@FindBy(how = How.XPATH, using = "//*[@id='sublabel_area']")
+	public WebElement operatorCodeSubLableRegistrationForm;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='sublabel_phone']/text()")
-	public WebElement registrationFormPhoneNumberSubLable;
+	@FindBy(how = How.XPATH, using = "//*[@id='sublabel_phone']")
+	public WebElement phoneNumberSubLableRegistrationForm;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='label_3']/text()")
-	public WebElement registrationFormEmailLable;
+	@FindBy(how = How.XPATH, using = "//*[@id='label_3']")
+	public WebElement emailLableRegistrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='input_3']")
-	public WebElement registrationFormEmailInputField;
+	public WebElement emailInputFieldRegistrationForm;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='label_5']/text()")
-	public WebElement registrationFormCorseLable;
+	@FindBy(how = How.XPATH, using = "//*[@id='label_5']")
+	public WebElement corseLableRegistrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='input_5']")
-	public WebElement registrationFormCorseDropdown;
+	public WebElement corseDropdownRegistrationForm;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='label_6']/text()")
-	public WebElement registrationFormCityLable;
+	@FindBy(how = How.XPATH, using = "//*[@id='label_6']")
+	public WebElement cityLableRegistrationForm;
 	
-	@FindBy(how = How.XPATH, using = "//div[@class='form-single-column']")
-	public List<WebElement> registrationFormCityRadioButtons;
+	@FindBy(how = How.XPATH, using = "//span[@class='form-radio-item']/label")
+	public List<WebElement> cityRadioButtonsRegistrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='label_12']/text()")
-	public WebElement registrationFormPriceLable;
+	public WebElement priceLableRegistrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='input_12']")
-	public WebElement registrationFormPriceInputField;
+	public WebElement priceInputFieldRegistrationForm;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id='id_7']")
-	public WebElement registrationFormCaptcha;
+	@FindBy(how = How.XPATH, using = "//*[@class='form-error-message']")
+	public List<WebElement> errorMessageRegistrationForm;
 	
-	@FindBy(how = How.XPATH, using = "//*[@class='modal-footer']/button[1]/text()")
-	public WebElement registrationFormCloseButton;
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='form-captcha']")
+	public WebElement captchaRegistrationForm;
+	
+	@FindBy(how = How.XPATH, using = "//*[@class='modal-footer']/button[1]")
+	public WebElement closeButtonRegistrationForm;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='reg_sbmt']")
-	public WebElement registrationFormSubmitButton;
+	public WebElement submitButtonRegistrationForm;
 	
 	public boolean isPageLoaded(){
-		return registartionFormCloseButton.isDisplayed();
+		return closeButtonRegistartionForm.isDisplayed();
 	}
-	public StudentRegistrationFormPage fielRegistrationForm(){
-		webDriver.switchTo().frame(registrationForm);
+	public StudentRegistrationFormPage fielRegistrationForm(String name, String sureName, String operatorCode, int phoneNumber, String emailAdress, String courseName, String city){
+		this.phoneNumber = Integer.toString(phoneNumber);
 		
-		registrationFormNameInputField.sendKeys("name");
-		registrationFormNameInputField.sendKeys("Sure anme");
-		registrationFormPhoneNumberInputField.sendKeys("phorene Number");
-		Select corseDropdown = new Select(registrationFormCorseDropdown);
-		corseDropdown.selectByVisibleText("Автоматизоване тестування");
+		webDriver.switchTo().frame(iFrame);
+		waitForElementPresent(nameInputFieldRegistartionForm);
 		
-		for (int i=0; i<registrationFormCityRadioButtons.size(); i++){
-			if ("".equals(registrationFormCityRadioButtons.get(i).getText())){
-				registrationFormCityRadioButtons.get(i).click();
+		nameInputFieldRegistartionForm.sendKeys(name);
+		sureNameInputFieldRegistartionForm.sendKeys(sureName);
+		operatorCodeInputFieldRegistrationForm.sendKeys(operatorCode);
+		phoneNumberInputFieldRegistrationForm.sendKeys(this.phoneNumber);
+		emailInputFieldRegistrationForm.sendKeys(emailAdress);
+		//working with DropDown
+		Select corseDropdown = new Select(corseDropdownRegistrationForm);
+		corseDropdown.selectByVisibleText(courseName);
+		//working with radio buttons
+		for (int i=0; i<cityRadioButtonsRegistrationForm.size(); i++){
+			
+			
+			if (city.equals(cityRadioButtonsRegistrationForm.get(i).getText())){
+				cityRadioButtonsRegistrationForm.get(i).click();
 				break;
 			}
 		}
-		
 		webDriver.switchTo().defaultContent();
+		return this;
+	}
+
+	public StudentRegistrationFormPage fielRegistrationFormWithOutNameAndSureName(String operatorCode, int phoneNumber, String emailAdress, String courseName, String city){
+		this.phoneNumber = Integer.toString(phoneNumber);
 		
+		webDriver.switchTo().frame(iFrame);
+		waitForElementPresent(operatorCodeInputFieldRegistrationForm);
+		
+		operatorCodeInputFieldRegistrationForm.sendKeys(operatorCode);
+		phoneNumberInputFieldRegistrationForm.sendKeys(this.phoneNumber);
+		emailInputFieldRegistrationForm.sendKeys(emailAdress);
+		
+		//working with DropDown
+		Select corseDropdown = new Select(corseDropdownRegistrationForm);
+		corseDropdown.selectByVisibleText(courseName);
+		//working with radio buttons
+		for (int i=0; i<cityRadioButtonsRegistrationForm.size(); i++){
+			
+			
+			if (city.equals(cityRadioButtonsRegistrationForm.get(i).getText())){
+				cityRadioButtonsRegistrationForm.get(i).click();
+				break;
+			}
+		}
+		webDriver.switchTo().defaultContent();
 		return this;
 	}
 	
-	public StudentRegistrationFormPage clickOnButton(String buttonName){
-		webDriver.switchTo().frame(registrationForm);
+	public boolean countOfErrorMessage(int countOfErrorMessages){
+		webDriver.switchTo().frame(iFrame);
+		if (errorMessageRegistrationForm.size() == countOfErrorMessages){
+			count = true;
+		}else count = false;
+		webDriver.switchTo().defaultContent();
+		return count;
 		
+	}
+	
+	public StudentRegistrationFormPage clickOnButton(String buttonName){
 		if ("Send".equalsIgnoreCase(buttonName)){
-			registrationFormSubmitButton.click();
+			submitButtonRegistrationForm.click();
 		}else {
 			if ("Close".equalsIgnoreCase(buttonName)){
-				registrationFormCloseButton.click();
+				closeButtonRegistrationForm.click();
 			}
 		}
-	
-		webDriver.switchTo().defaultContent();
-		
 		return this;
-		
 	}
 }

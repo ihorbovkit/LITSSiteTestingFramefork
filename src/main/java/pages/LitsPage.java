@@ -18,7 +18,7 @@ public class LitsPage extends Page{
 	// Header Elements
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='header-logo-image']//img")
-	public WebElement headerLogoImage;
+	public WebElement logoImageHeader;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id ='header-right-section']//i[@class='icon-mail']")
 	public WebElement mailIcon;
@@ -30,10 +30,10 @@ public class LitsPage extends Page{
 	public WebElement moodleIcon;
 
 	@FindBy(how = How.XPATH, using = "//*[@id ='header-right-section']//i[@class='icon-tel']")
-	public WebElement telephoneIcon;
+	public WebElement phoneIcon;
 	
-	@FindBy(how = How.XPATH, using = "//*[@id ='header-right-section']//i[@class='icon-tel']/ancestor::a/text()")
-	public WebElement telephoneNumber;
+	@FindBy(how = How.XPATH, using = "//*[@id ='header-right-section']//i[@class='icon-tel']/ancestor::a")
+	public WebElement phoneNumber;
 	
 	@FindBy(how = How.XPATH, using = "//*[@class='red-btn-small']")
 	public WebElement becomeStudentButton;
@@ -48,16 +48,16 @@ public class LitsPage extends Page{
 	public WebElement schoolDropDown;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-179']/a")
-	public WebElement schoolDropDownQaSchoolLink;
+	public WebElement qaSchoolLinkSchoolDropDown;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-180']/a")
-	public WebElement schoolDropDownPmSchoolLink;
+	public WebElement pmSchoolLinkSchoolDropDown;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-181']/a")
-	public WebElement schoolDropDownCodeSchoolLink;
+	public WebElement codeSchoolLinkSchoolDropDown;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-378']/a")
-	public WebElement schoolDropDownDesignSchoolLink;
+	public WebElement designSchoolLinkSchoolDropDown;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-74']/a")
 	public WebElement newsLink;
@@ -66,7 +66,7 @@ public class LitsPage extends Page{
 	public WebElement courceDropDown;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-499']/a")
-	public WebElement courceDropDownLvivQASchoolDropDown;
+	public WebElement lvivQASchoolDropDownCourceDropDown;
 	//TODO
 	/*
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-499']/a")
@@ -83,13 +83,13 @@ public class LitsPage extends Page{
 	public WebElement courceDropDownLvivQASchoolDropDown;*/
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-500']/a")
-	public WebElement courceDropDownPmSchoolDropDown;
+	public WebElement pmSchoolDropDownCourceDropDown;
 	//TODO	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-501']/a")
-	public WebElement courceDropDownCodeSchoolDropDown;
+	public WebElement codeSchoolDropDownCourceDropDown;
 	//TODO
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-502']/a")
-	public WebElement courceDropDownDesignSchoolDropDown;
+	public WebElement designSchoolDropDownCourceDropDown;
 
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-97']/a")
 	public WebElement teachersLink;
@@ -114,68 +114,96 @@ public class LitsPage extends Page{
 	public WebElement editMessage;
 	
 	@FindBy(how = How.XPATH, using = "//div[contains(@class, 'footer-socket-area')]")
-	public WebElement footerSocketArea;
+	public WebElement socketAreaFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-78']/a")
-	public WebElement footerNewsLink;
+	public WebElement newsLinkFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-79']/a")
-	public WebElement footerCourseLink;
+	public WebElement courseLinkFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-82']/a")
-	public WebElement footerContactsLink;
+	public WebElement contactsLinkFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-106']/a")
-	public WebElement footerTeachersLink;
+	public WebElement teachersLinkFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-188']/a")
-	public WebElement footerBlogPostsLink;
+	public WebElement blogPostsLinkFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-747']/a")
-	public WebElement footerForPressLink;
+	public WebElement forPressLinkFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='menu-item-991']/a")
-	public WebElement footerLectoramasLink;
+	public WebElement lectoramasLinkFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']")
-	public WebElement footerContacts;
+	public WebElement contactsFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-mail']")
-	public WebElement footerIconMail;
+	public WebElement iconMailFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-fb-light']")
-	public WebElement footerIconFaceBookLight;
+	public WebElement iconFaceBookLightFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-moodle']")
-	public WebElement footerIconMoodle;
+	public WebElement iconMoodleFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-inner-web']")
-	public WebElement footerIconInnerWeb;
+	public WebElement iconInnerWebFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='inner-tel']")
-	public WebElement footerIconTelephone;
+	public WebElement iconTelephoneFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='footer-contacts']//i[@class='icon-tel']/..//text()")
-	public WebElement footerTelephoneNumber;
+	public WebElement telephoneNumberFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@class='mission-title']/text()")
-	public WebElement footerMissionTitle;
+	public WebElement missionTitleFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@class='mission-title']/../text()")
-	public WebElement footerMissionText;
+	public WebElement missionTextFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[contains(@class, 'copyright-text')]/text()")
-	public WebElement footerCopyrightText;
+	public WebElement copyrightTextFooter;
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='scroll-up']")
-	public WebElement footerScrollUp;
+	public WebElement scrollUpFooter;
 	
 	public boolean isAvatarDisplayed() {
-		return headerLogoImage.isDisplayed();
+		waitForElementPresent(headerSiteNavigation);
+		return logoImageHeader.isDisplayed();
 	}
-	public StudentRegistrationFormPage clickOnElement(){
+	
+	public HomePage clickOnPageLogo(){
+		waitForElementPresent(logoImageHeader);
+		logoImageHeader.click();
+		return PageFactory.initElements(webDriver, HomePage.class);
+	}
+	
+	public ContactFormPage clickOnIconMail(){
+		waitForElementPresent(mailIcon);
+		mailIcon.click();
+		return PageFactory.initElements(webDriver, ContactFormPage.class);
+	}
+	
+	public String checkForCorrectPhoneNumber(){
+		waitForElementPresent(phoneNumber);
+		String str = phoneNumber.getText();
+		str = str.replace(" ", "");
+		str = str.replace("-", "");
+		return str;
+	}
+	
+	public StudentRegistrationFormPage clickOnBecomeStudentButton(){
+		waitForElementPresent(becomeStudentButton);
 		becomeStudentButton.click();
 		return PageFactory.initElements(webDriver, StudentRegistrationFormPage.class);
 	}
 	
+	public HomePage clickOnHomePageLink(){
+		waitForElementPresent(homePageLink);
+		homePageLink.click();
+		return PageFactory.initElements(webDriver, HomePage.class);
+	}
 }

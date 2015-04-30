@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
@@ -14,6 +15,8 @@ public class WebDriverFactory {
 
 	private static final String CHROME = "chrome";
 	private static final String FIREFOX = "firefox";
+	private static final String IE = "IE";
+	private static final String OPERA = "opera";
 
 	private static WebDriver webDriver;
 	private static DesiredCapabilities dc;
@@ -50,6 +53,14 @@ public class WebDriverFactory {
 				
 				webDriver = new FirefoxDriver(dc);
 				
+			} else if (IE.equals(browser)) {
+				System.setProperty("webdriver.ie.driver",
+						".//src/main/resources/drivers/IE/IEDriverServer.exe");
+				webDriver = new InternetExplorerDriver();
+			}else if (OPERA.equals(browser)) {
+				/*OPERA is not supported yet*/
+				throw new Exception("Opera browser is not supported yet...");
+				//webDriver = new OperaDriver();
 			}else
 				throw new Exception("Invalid browser property set in configuration file");
 
