@@ -5,7 +5,7 @@
 	<test name="SingleTestSuite">
 		<classes>
 		    <class name="ua.com.LITS.testcase.HomePageTests.HomePageTestSuite"/>
-		    <!-- <class name="ua.com.LITS.testcase.StudentRegistrationPageTests.StudentRegistrationTestSute"/> -->
+		    <class name="ua.com.LITS.testcase.StudentRegistrationPageTests.StudentRegistrationTestSute"/>
 		</classes>
 	</test>
 	  

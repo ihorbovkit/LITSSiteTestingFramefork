@@ -17,12 +17,25 @@ public class StudentRegistrationTestSute extends TestBase {
 		//Thread.sleep(4000);
 		formPage.clickOnButton("Send");
 		//Thread.sleep(10000);
-		Assert.assertTrue(formPage.countOfErrorMessage(1), "Count of error message on the page should be 1");
+		Assert.assertEquals(formPage.countOfErrorMessage(), 1, "Count of error message on the page");
 		
 		formPage.clickOnButton("Close");
 
 	}
-	
+	@Test
+	public void fielRegistrationFormWithIncorrectData() throws InterruptedException {
+		StudentRegistrationFormPage formPage = home
+				.clickOnBecomeStudentButton().fielRegistrationForm("096",
+						"8139917", "Ihor", 1212122, "ihor.bovkit.gmail.com",
+						"Автоматизоване тестування", "Івано-Франківськ");
+		//Thread.sleep(4000);
+		formPage.clickOnButton("Send");
+		//Thread.sleep(10000);
+		Assert.assertEquals(formPage.countOfErrorMessage(), 3, "Count of error message on the page");
+		
+		formPage.clickOnButton("Close");
+
+	}
 	@Test
 	public void fielRegistarationFormWithOutNameAndSureName() throws InterruptedException{
 		StudentRegistrationFormPage formPage = home.clickOnBecomeStudentButton();
@@ -31,7 +44,7 @@ public class StudentRegistrationTestSute extends TestBase {
 						"Автоматизоване тестування", "Івано-Франківськ");
 		Thread.sleep(2000);
 		formPage.clickOnButton("Send");
-		Assert.assertTrue(formPage.countOfErrorMessage(2), "Count of error message on the page should be 2");
+		Assert.assertEquals(formPage.countOfErrorMessage(), 2, "Count of error message on the page");
 		formPage.clickOnButton("Close");
 	}
 

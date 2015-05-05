@@ -15,7 +15,7 @@ public class StudentRegistrationFormPage extends Page{
 		// TODO Auto-generated constructor stub
 	}
 	private String phoneNumber;
-	private boolean count;
+	
 	
 	@FindBy(how = How.XPATH, using = "//*[@id='register_form']//*[@id='myModalLabel']")
 	public WebElement headerRegistrationForm;
@@ -153,11 +153,9 @@ public class StudentRegistrationFormPage extends Page{
 		return this;
 	}
 	
-	public boolean countOfErrorMessage(int countOfErrorMessages){
+	public int countOfErrorMessage(){
 		webDriver.switchTo().frame(iFrame);
-		if (errorMessageRegistrationForm.size() == countOfErrorMessages){
-			count = true;
-		}else count = false;
+		int count = errorMessageRegistrationForm.size();
 		webDriver.switchTo().defaultContent();
 		return count;
 		

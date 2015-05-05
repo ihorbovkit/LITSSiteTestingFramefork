@@ -54,16 +54,21 @@ public class WebDriverFactory {
 				webDriver = new FirefoxDriver(dc);
 				
 			} else if (IE.equals(browser)) {
+				DesiredCapabilities dc = DesiredCapabilities.internetExplorer();
+				//fix for IE 11
+				
+				dc.setCapability(InternetExplorerDriver.
+		                 INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true); 
+				
 				System.setProperty("webdriver.ie.driver",
 						".//src/main/resources/drivers/IE/IEDriverServer.exe");
-				webDriver = new InternetExplorerDriver();
+				webDriver = new InternetExplorerDriver(dc);
 			}else if (OPERA.equals(browser)) {
 				/*OPERA is not supported yet*/
 				throw new Exception("Opera browser is not supported yet...");
 				//webDriver = new OperaDriver();
 			}else
 				throw new Exception("Invalid browser property set in configuration file");
-
 		}
 
 		return webDriver;
